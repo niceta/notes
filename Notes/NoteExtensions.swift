@@ -21,25 +21,31 @@ extension Note {
         
         var priority: Priority {
             if let priority = json["priority"] as? String {
-                return Priority(rawValue: priority)!
-            } else {
-                return .normal
+                return Priority(rawValue: priority) ?? .normal
             }
+            return .normal
         }
         
         var color: UIColor {
-            if let colors = json["color"] as? [CGFloat] {
+            if let colors = json["color"] as? [CGFloat], colors.count == 4 {
                 return UIColor(red: colors[0], green: colors[1], blue: colors[2], alpha: colors[3])
-            } else {
-                return .white
             }
+            return .white
         }
         
-        var selfDestructionTime: Date? {
+        var selfDestructionDate: Date? {
+            if let date = json["selfDestructionDate"] as? Double {
+                return Date(timeIntervalSince1970: TimeInterval(date))
+            }
             return nil
         }
         
-        return nil
+        return Note(title: title,
+                    content: content,
+                    priority: priority,
+                    uid: uid,
+                    color: color,
+                    selfDestructionDate: selfDestructionDate)
     }
     
     var json: [String: Any] {
@@ -49,7 +55,7 @@ extension Note {
         result["content"] = self.content
         
         if self.priority != .normal {
-            result["priority"] = self.priority
+            result["priority"] = self.priority.rawValue
         }
         
         if self.color != .white {
