@@ -11,12 +11,40 @@ import UIKit
 
 extension Note {
     static func parse(json: [String: Any]) -> Note? {
+        guard
+            let uid = json["uid"] as? String,
+            let title = json["title"] as? String,
+            let content = json["content"] as? String
+        else {
+             return nil
+        }
+        
+        var priority: Priority {
+            if let priority = json["priority"] as? String {
+                return Priority(rawValue: priority)!
+            } else {
+                return .normal
+            }
+        }
+        
+        var color: UIColor {
+            if let colors = json["color"] as? [CGFloat] {
+                return UIColor(red: colors[0], green: colors[1], blue: colors[2], alpha: colors[3])
+            } else {
+                return .white
+            }
+        }
+        
+        var selfDestructionTime: Date? {
+            return nil
+        }
+        
         return nil
     }
     
     var json: [String: Any] {
         var result: [String: Any] = [:]
-        result["id"] = self.uid
+        result["uid"] = self.uid
         result["title"] = self.title
         result["content"] = self.content
         
