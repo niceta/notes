@@ -9,10 +9,10 @@
 import UIKit
 
 
-enum Priority {
-    case low
-    case normal
-    case high
+enum Priority: String {
+    case low = "low"
+    case normal = "normal"
+    case high = "high"
 }
 
 struct Note {
