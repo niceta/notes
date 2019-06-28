@@ -10,22 +10,21 @@ import Foundation
 
 
 class FileNotebook {
-    private(set) var notes = [String: [String: Any]]()
+    private(set) var notes = [String: Note]()
     private let dirName = "notebook"
     // В случае дубликата - создаю новую заметку-копию,
     // в которой только переопределяю uid по дефолту
     func add(_ note: Note) {
         if notes[note.uid] == nil {
-            notes[note.uid] = note.json
+            notes[note.uid] = note
         } else {
             let newUid = UUID().uuidString
-            let newNote = Note(title: note.title,
-                               content: note.content,
-                               priority: note.priority,
-                               uid: newUid,
-                               color: note.color,
-                               selfDestructionDate: note.selfDestructionDate)
-            notes[newUid] = newNote.json
+            notes[newUid] = Note(title: note.title,
+                                 content: note.content,
+                                 priority: note.priority,
+                                 uid: newUid,
+                                 color: note.color,
+                                 selfDestructionDate: note.selfDestructionDate)
         }
     }
     
@@ -38,8 +37,12 @@ class FileNotebook {
     func saveToFile() {
         let path = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first!
         let filePath = path.appendingPathComponent(dirName)
+        var jsonObjects = [[String: Any]]()
+        for (_, note) in notes {
+            jsonObjects.append(note.json)
+        }
         do {
-            let data = try JSONSerialization.data(withJSONObject: notes, options: [])
+            let data = try JSONSerialization.data(withJSONObject: jsonObjects, options: [])
             try data.write(to: filePath)
         } catch {
             print("Something went wrong with saving!")
@@ -52,9 +55,14 @@ class FileNotebook {
         if FileManager.default.fileExists(atPath: filePath.path) {
             do {
                 let data = try Data(contentsOf: filePath)
-                let json = try JSONSerialization.jsonObject(with: data, options: [])
-                if let json = json as? Dictionary<String, Dictionary<String, Any>> {
-                    notes = json
+                let jsonObjects = try JSONSerialization.jsonObject(with: data, options: [])
+                if let jsonObjects = jsonObjects as? Array<Dictionary<String, Any>> {
+                    notes.removeAll()
+                    for json in jsonObjects {
+                        if let note = Note.parse(json: json) {
+                            notes[note.uid] = note
+                        }
+                    }
                 } else {
                     print("Can't parse json from file: \(filePath)")
                 }
