@@ -73,9 +73,6 @@ extension Note {
 }
 
 extension UIColor {
-    // Комментарий Дениса из телеграмм-чатика:
-    // CGFloat - это typealias для Float, поэтому это тоже простой тип.
-    // Т.е. нарушение условия это не считается, поэтому баллы ставить нормально
     var rgba: [CGFloat] {
         var red: CGFloat = 0
         var green: CGFloat = 0
