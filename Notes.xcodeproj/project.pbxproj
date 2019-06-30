@@ -62,6 +62,7 @@
 		590C4B0C22B8260400051B46 /* Notes */ = {
 			isa = PBXGroup;
 			children = (
+				591F62CB22C8CA32004FF37F /* Model */,
 				590C4B0D22B8260400051B46 /* AppDelegate.swift */,
 				590C4B0F22B8260400051B46 /* ViewController.swift */,
 				590C4B1122B8260400051B46 /* Main.storyboard */,
@@ -69,11 +70,18 @@
 				590C4B1922B8260600051B46 /* LaunchScreen.storyboard */,
 				590C4B1C22B8260600051B46 /* Info.plist */,
 				590C4B1422B8260400051B46 /* Notes.xcdatamodeld */,
+			);
+			path = Notes;
+			sourceTree = "<group>";
+		};
+		591F62CB22C8CA32004FF37F /* Model */ = {
+			isa = PBXGroup;
+			children = (
 				590C4B2222B8263C00051B46 /* Note.swift */,
 				590C4B2622B94AB300051B46 /* NoteExtensions.swift */,
 				593A54E122C2BC9D00D2C449 /* FileNotebook.swift */,
 			);
-			path = Notes;
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
