@@ -19,8 +19,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         #if DEBUG
             print("It's a debug!!!")
         #endif
-        #if PROD
-            print("It's a prod!!!")
+        #if QA
+            print("It's a QA!!!")
         #endif
         return true
     }
