@@ -18,6 +18,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+//        Привет! Я добавил логгер в основные функции жизненного цикла приложения:
+//        когда оно открывается, уходит в бэкграунд, выходит из бэкграунда, висит в
+//        бэкграунде и умирает =) Ты можешь запустить приложение и потыкать круглую
+//        кнопку, если симулятор меньше Х, или же посвайпать экран, если Х и выше,
+//        при этом наблюдая в консоли названия функций, которые отвечают за действия
+//        на этом этапе жизненного цикла приложения. Enjoy! =)
         DDLog.add(DDOSLogger.sharedInstance)
         #if DEBUG
             print("It's a debug!!!")
