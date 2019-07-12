@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina3_5" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,92 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter title for your note" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="KfU-gN-Y8k">
+                                <rect key="frame" x="8" y="36" width="304" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="vri-J1-gvs">
+                                <rect key="frame" x="16" y="74" width="288" height="50"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="F7n-MA-fuo"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MTX-Oe-uUp" customClass="ColorSquareView" customModule="Notes" customModuleProvider="target">
+                                <rect key="frame" x="16" y="390" width="70" height="70"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="MTX-Oe-uUp" secondAttribute="height" multiplier="1:1" id="WXE-ZE-VIE"/>
+                                    <constraint firstAttribute="width" constant="70" id="t4L-C9-Uy6"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GIg-pc-ByS" customClass="ColorSquareView" customModule="Notes" customModuleProvider="target">
+                                <rect key="frame" x="94" y="390" width="70" height="70"/>
+                                <color key="backgroundColor" red="1" green="0.29005736080321831" blue="0.21556685885427618" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="GIg-pc-ByS" secondAttribute="height" multiplier="1:1" id="0Xe-Fw-Uu4"/>
+                                    <constraint firstAttribute="width" constant="70" id="tgJ-nj-TVg"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e6w-x6-Swb" customClass="ColorSquareView" customModule="Notes" customModuleProvider="target">
+                                <rect key="frame" x="172" y="390" width="70" height="70"/>
+                                <color key="backgroundColor" red="0.11984678209999999" green="1" blue="0.1380575279" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="e6w-x6-Swb" secondAttribute="height" multiplier="1:1" id="8wI-6j-s8C"/>
+                                    <constraint firstAttribute="width" constant="70" id="Bjl-Rr-VQX"/>
+                                </constraints>
+                            </view>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aPA-aG-gJi">
+                                <rect key="frame" x="168" y="351" width="51" height="31"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use Destroy Date: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h5Z-Ph-gZM">
+                                <rect key="frame" x="16" y="356" width="144" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="e6w-x6-Swb" firstAttribute="top" secondItem="aPA-aG-gJi" secondAttribute="bottom" constant="8" id="1Ru-Sf-iVM"/>
+                            <constraint firstItem="e6w-x6-Swb" firstAttribute="centerY" secondItem="MTX-Oe-uUp" secondAttribute="centerY" id="Agd-Lg-MSo"/>
+                            <constraint firstItem="MTX-Oe-uUp" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="BVl-uM-OaN"/>
+                            <constraint firstItem="aPA-aG-gJi" firstAttribute="top" relation="greaterThanOrEqual" secondItem="vri-J1-gvs" secondAttribute="bottom" id="E3h-YI-8yS"/>
+                            <constraint firstItem="KfU-gN-Y8k" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="EbM-cx-RJF"/>
+                            <constraint firstItem="GIg-pc-ByS" firstAttribute="leading" secondItem="MTX-Oe-uUp" secondAttribute="trailing" constant="8" id="INt-h7-Tby"/>
+                            <constraint firstItem="h5Z-Ph-gZM" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="JD7-Xx-WC2"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="KfU-gN-Y8k" secondAttribute="trailing" constant="8" id="NqM-Z7-jUy"/>
+                            <constraint firstItem="aPA-aG-gJi" firstAttribute="leading" secondItem="h5Z-Ph-gZM" secondAttribute="trailing" constant="8" id="QJh-yU-2eY"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="vri-J1-gvs" secondAttribute="trailing" constant="16" id="Ug7-6r-io8"/>
+                            <constraint firstItem="vri-J1-gvs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="b6U-YN-8fq"/>
+                            <constraint firstItem="GIg-pc-ByS" firstAttribute="centerY" secondItem="MTX-Oe-uUp" secondAttribute="centerY" id="dAA-dJ-2kW"/>
+                            <constraint firstItem="KfU-gN-Y8k" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="8" id="hsk-DW-Fmk"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="MTX-Oe-uUp" secondAttribute="bottom" constant="20" id="ixU-9f-OXr"/>
+                            <constraint firstItem="vri-J1-gvs" firstAttribute="top" secondItem="KfU-gN-Y8k" secondAttribute="bottom" constant="8" id="jmc-A6-D9c"/>
+                            <constraint firstItem="h5Z-Ph-gZM" firstAttribute="centerY" secondItem="aPA-aG-gJi" secondAttribute="centerY" id="p8S-rx-3D4"/>
+                            <constraint firstItem="e6w-x6-Swb" firstAttribute="leading" secondItem="GIg-pc-ByS" secondAttribute="trailing" constant="8" id="qQa-VF-GE0"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outlet property="greenSquare" destination="e6w-x6-Swb" id="bZo-3I-HHq"/>
+                        <outlet property="redSquare" destination="GIg-pc-ByS" id="S3M-pL-gTa"/>
+                        <outlet property="textField" destination="vri-J1-gvs" id="iGu-kd-MXr"/>
+                        <outlet property="whiteSquare" destination="MTX-Oe-uUp" id="bFl-V4-kH1"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="135" y="117.25352112676056"/>
         </scene>
     </scenes>
 </document>
