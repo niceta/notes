@@ -94,6 +94,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="datePickerView" destination="Omz-Jj-8du" id="i4l-pY-QoH"/>
                         <outlet property="scrollView" destination="HxN-Od-J5e" id="IX5-DT-SY7"/>
                         <outlet property="textField" destination="Tyr-Zw-3cB" id="Spq-0t-BrJ"/>
                         <outlet property="textView" destination="ARd-1X-1OO" id="pVI-GC-Led"/>

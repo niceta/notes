@@ -11,6 +11,16 @@ import UIKit
 @IBDesignable
 class DatePickerView: UIView {
     
+    @IBOutlet weak var dateFieldView: UITextField!
+    @IBOutlet weak var switchView: UISwitch!
+    @IBAction func switchStateChanged(_ sender: UISwitch) {
+        dateFieldView.isEnabled = switchView.isOn
+        dateFieldView.isHidden = !switchView.isOn
+        if switchView.isOn {
+            dateFieldView.becomeFirstResponder()
+        }
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()

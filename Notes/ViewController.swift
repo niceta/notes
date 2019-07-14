@@ -13,9 +13,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var textField: UITextField!
+    @IBOutlet weak var datePickerView: DatePickerView!
     
-    var screenFrame = UIScreen.main.bounds
-    
+    private var screenFrame = UIScreen.main.bounds
+    private var datePicker: UIDatePicker?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +31,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         textField.delegate = self
         tapOnViewAndCloseKeyboard()
+        datePicker = UIDatePicker()
+        datePicker?.datePickerMode = .date
+        datePicker?.addTarget(self, action: #selector(ViewController.dateChanged(datePicker:)), for: .valueChanged)
+        
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ViewController.viewTapped(gestureRecognier:)))
+        view.addGestureRecognizer(tapGesture)
+        datePickerView.dateFieldView.inputView = datePicker
+        
 //        whiteSquare.layer.borderWidth = 1
 //        whiteSquare.layer.borderColor = UIColor.black.cgColor
 //
@@ -38,6 +47,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
 //
 //        greenSquare.layer.borderWidth = 1
 //        greenSquare.layer.borderColor = UIColor.black.cgColor
+    }
+    
+    @objc func viewTapped(gestureRecognier: UITapGestureRecognizer) {
+        view.endEditing(true)
+    }
+    
+    @objc func dateChanged(datePicker: UIDatePicker) {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "MM/dd/yyyy"
+        datePickerView.dateFieldView.text = formatter.string(from: datePicker.date)
+        view.endEditing(true)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -49,14 +69,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        self.view.endEditing(true)
+        view.endEditing(true)
         return true
     }
     
     func tapOnViewAndCloseKeyboard() {
-        let tapOnView = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        let tapOnView = UITapGestureRecognizer(target: view, action: #selector(UIView.endEditing(_:)))
         tapOnView.cancelsTouchesInView = false
-        self.view.addGestureRecognizer(tapOnView)
+        view.addGestureRecognizer(tapOnView)
     }
     
     @objc func keyboardWillChange(_ notification: Notification) {
