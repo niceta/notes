@@ -35,6 +35,20 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         textField.delegate = self
         tapOnViewAndCloseKeyboard()
+        initDatePicker()
+        
+        whiteColorView.layer.borderWidth = 1
+        whiteColorView.layer.borderColor = UIColor.black.cgColor
+        
+        redColorView.layer.borderWidth = 1
+        redColorView.layer.borderColor = UIColor.black.cgColor
+
+        greenColorView.layer.borderWidth = 1
+        greenColorView.layer.borderColor = UIColor.black.cgColor
+        
+    }
+    
+    private func initDatePicker() {
         datePicker = UIDatePicker()
         datePicker?.datePickerMode = .date
         datePicker?.addTarget(self, action: #selector(ViewController.dateChanged(datePicker:)), for: .valueChanged)
@@ -42,15 +56,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ViewController.viewTapped(gestureRecognier:)))
         view.addGestureRecognizer(tapGesture)
         datePickerView.dateFieldView.inputView = datePicker
-        
-        whiteColorView.layer.borderWidth = 1
-        whiteColorView.layer.borderColor = UIColor.black.cgColor
-
-        redColorView.layer.borderWidth = 1
-        redColorView.layer.borderColor = UIColor.black.cgColor
-
-        greenColorView.layer.borderWidth = 1
-        greenColorView.layer.borderColor = UIColor.black.cgColor
     }
     
     @objc func viewTapped(gestureRecognier: UITapGestureRecognizer) {
