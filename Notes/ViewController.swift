@@ -44,6 +44,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func anyColorTapped(_ sender: UITapGestureRecognizer) {
+        if let _ = anyColorView.layer.sublayers {
+            return
+        }
         whiteColorView.isShapeHidden = true
         redColorView.isShapeHidden = true
         greenColorView.isShapeHidden = true
@@ -51,6 +54,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func anyColorLongPressed(_ sender: UILongPressGestureRecognizer) {
+        view.endEditing(true) // чтобы убрать клавиатуру при переходе к выбору цвета
         colorPickerView.isHidden = false
     }
     
@@ -90,6 +94,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
     
     private func initDatePicker() {
+        let toolbar: UIToolbar = UIToolbar(
+            frame: CGRect(x: 0, y: 0,  width: screenFrame.size.width, height: 30)
+        )
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton: UIBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(textFieldShouldReturn))
+        toolbar.setItems([flexSpace, doneButton], animated: false)
+        toolbar.sizeToFit()
+        toolbar.backgroundColor = .white
+        datePickerView.dateFieldView.inputAccessoryView = toolbar
+        
         datePicker = UIDatePicker()
         datePicker?.datePickerMode = .date
         datePicker?.addTarget(self, action: #selector(ViewController.dateChanged(datePicker:)), for: .valueChanged)
