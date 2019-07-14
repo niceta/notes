@@ -17,6 +17,8 @@
 		590C4B2322B8263C00051B46 /* Note.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590C4B2222B8263C00051B46 /* Note.swift */; };
 		590C4B2722B94AB300051B46 /* NoteExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590C4B2622B94AB300051B46 /* NoteExtensions.swift */; };
 		590F0FF322D8C0EA00C7AA2E /* ColorSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590F0FF222D8C0EA00C7AA2E /* ColorSquareView.swift */; };
+		590F0FF522DB8A0800C7AA2E /* DatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 590F0FF422DB8A0800C7AA2E /* DatePickerView.xib */; };
+		590F0FF722DB8D6900C7AA2E /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590F0FF622DB8D6900C7AA2E /* DatePickerView.swift */; };
 		593A54E222C2BC9D00D2C449 /* FileNotebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593A54E122C2BC9D00D2C449 /* FileNotebook.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +36,8 @@
 		590C4B2222B8263C00051B46 /* Note.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Note.swift; sourceTree = "<group>"; };
 		590C4B2622B94AB300051B46 /* NoteExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteExtensions.swift; sourceTree = "<group>"; };
 		590F0FF222D8C0EA00C7AA2E /* ColorSquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSquareView.swift; sourceTree = "<group>"; };
+		590F0FF422DB8A0800C7AA2E /* DatePickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerView.xib; sourceTree = "<group>"; };
+		590F0FF622DB8D6900C7AA2E /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
 		593A54E122C2BC9D00D2C449 /* FileNotebook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileNotebook.swift; sourceTree = "<group>"; };
 		90A8AE108B5FC4F16F0A8969 /* libPods-Notes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Notes.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF7927B24386225F25B2C0F0 /* Pods-Notes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notes.debug.xcconfig"; path = "Target Support Files/Pods-Notes/Pods-Notes.debug.xcconfig"; sourceTree = "<group>"; };
@@ -89,6 +93,8 @@
 				590C4B1C22B8260600051B46 /* Info.plist */,
 				590C4B1422B8260400051B46 /* Notes.xcdatamodeld */,
 				590F0FF222D8C0EA00C7AA2E /* ColorSquareView.swift */,
+				590F0FF422DB8A0800C7AA2E /* DatePickerView.xib */,
+				590F0FF622DB8D6900C7AA2E /* DatePickerView.swift */,
 			);
 			path = Notes;
 			sourceTree = "<group>";
@@ -174,6 +180,7 @@
 			files = (
 				590C4B1B22B8260600051B46 /* LaunchScreen.storyboard in Resources */,
 				590C4B1822B8260600051B46 /* Assets.xcassets in Resources */,
+				590F0FF522DB8A0800C7AA2E /* DatePickerView.xib in Resources */,
 				590C4B1322B8260400051B46 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -216,6 +223,7 @@
 				590C4B2722B94AB300051B46 /* NoteExtensions.swift in Sources */,
 				590C4B0E22B8260400051B46 /* AppDelegate.swift in Sources */,
 				590F0FF322D8C0EA00C7AA2E /* ColorSquareView.swift in Sources */,
+				590F0FF722DB8D6900C7AA2E /* DatePickerView.swift in Sources */,
 				590C4B2322B8263C00051B46 /* Note.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

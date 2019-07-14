@@ -33,18 +33,6 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BbE-bx-7ha">
-                                                <rect key="frame" x="168" y="120" width="51" height="31"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="31" id="vsu-io-Y3y"/>
-                                                </constraints>
-                                            </switch>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use Destroy Date: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ICv-Ck-AgE">
-                                                <rect key="frame" x="16" y="120" width="144" height="31"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" text="text" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ARd-1X-1OO">
                                                 <rect key="frame" x="8" y="62" width="304" height="50"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -61,23 +49,28 @@
                                                     <constraint firstAttribute="height" constant="70" id="cbd-b0-g1E"/>
                                                 </constraints>
                                             </view>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Omz-Jj-8du" customClass="DatePickerView" customModule="Notes" customModuleProvider="target">
+                                                <rect key="frame" x="16" y="120" width="288" height="31"/>
+                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="31" id="zkA-zt-fB5"/>
+                                                </constraints>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="BbE-bx-7ha" firstAttribute="leading" secondItem="ICv-Ck-AgE" secondAttribute="trailing" constant="8" id="1eu-b1-ydp"/>
-                                            <constraint firstItem="ICv-Ck-AgE" firstAttribute="height" secondItem="BbE-bx-7ha" secondAttribute="height" id="3wo-1Y-lkc"/>
                                             <constraint firstAttribute="trailing" secondItem="ARd-1X-1OO" secondAttribute="trailing" constant="8" id="A9P-4h-zM1"/>
                                             <constraint firstAttribute="trailing" secondItem="Tyr-Zw-3cB" secondAttribute="trailing" constant="8" id="BqM-6p-l0f"/>
-                                            <constraint firstItem="ICv-Ck-AgE" firstAttribute="centerY" secondItem="BbE-bx-7ha" secondAttribute="centerY" id="Jeb-p1-HUl"/>
+                                            <constraint firstItem="Omz-Jj-8du" firstAttribute="top" secondItem="ARd-1X-1OO" secondAttribute="bottom" constant="8" id="G6R-j8-pG1"/>
                                             <constraint firstItem="ARd-1X-1OO" firstAttribute="leading" secondItem="ohj-Xp-4dm" secondAttribute="leading" constant="8" id="Kvb-Eh-NNX"/>
                                             <constraint firstItem="ARd-1X-1OO" firstAttribute="top" secondItem="Tyr-Zw-3cB" secondAttribute="bottom" constant="16" id="NRT-To-g4n"/>
                                             <constraint firstItem="Tyr-Zw-3cB" firstAttribute="leading" secondItem="ohj-Xp-4dm" secondAttribute="leading" constant="8" id="OhR-HP-FXa"/>
+                                            <constraint firstItem="ka8-GL-fqX" firstAttribute="top" secondItem="Omz-Jj-8du" secondAttribute="bottom" constant="8" id="VLq-X7-MS0"/>
                                             <constraint firstAttribute="trailing" secondItem="ka8-GL-fqX" secondAttribute="trailing" constant="16" id="YD0-Cd-p5Y"/>
+                                            <constraint firstItem="Omz-Jj-8du" firstAttribute="leading" secondItem="ohj-Xp-4dm" secondAttribute="leading" constant="16" id="cQU-F9-VVe"/>
                                             <constraint firstItem="ka8-GL-fqX" firstAttribute="leading" secondItem="ohj-Xp-4dm" secondAttribute="leading" constant="16" id="ekY-Yr-L3B"/>
                                             <constraint firstItem="Tyr-Zw-3cB" firstAttribute="top" secondItem="ohj-Xp-4dm" secondAttribute="top" constant="16" id="fb1-xe-WuW"/>
-                                            <constraint firstItem="ICv-Ck-AgE" firstAttribute="leading" secondItem="ohj-Xp-4dm" secondAttribute="leading" constant="16" id="gRN-iT-UhB"/>
-                                            <constraint firstItem="BbE-bx-7ha" firstAttribute="top" secondItem="ARd-1X-1OO" secondAttribute="bottom" constant="8" id="mrx-cq-eVz"/>
-                                            <constraint firstItem="ka8-GL-fqX" firstAttribute="top" secondItem="BbE-bx-7ha" secondAttribute="bottom" constant="8" id="oj6-Eq-PSU"/>
+                                            <constraint firstAttribute="trailing" secondItem="Omz-Jj-8du" secondAttribute="trailing" constant="16" id="ooh-EP-IO8"/>
                                             <constraint firstAttribute="bottom" secondItem="ka8-GL-fqX" secondAttribute="bottom" constant="50" id="sXq-Fm-05l"/>
                                         </constraints>
                                     </view>
@@ -108,7 +101,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="133.59999999999999" y="115.59220389805098"/>
+            <point key="canvasLocation" x="133.125" y="115.14084507042254"/>
         </scene>
     </scenes>
 </document>
