@@ -13,6 +13,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var whiteColorView: ColorSquareView!
     @IBOutlet weak var redColorView: ColorSquareView!
     @IBOutlet weak var greenColorView: ColorSquareView!
+    @IBOutlet weak var anyColorView: ColorSquareView!
+    
     
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var textView: UITextView!
@@ -23,18 +25,28 @@ class ViewController: UIViewController, UITextFieldDelegate {
         whiteColorView.isShapeHidden = false
         redColorView.isShapeHidden = true
         greenColorView.isShapeHidden = true
+        anyColorView.isShapeHidden = true
     }
     
     @IBAction func redColorTapped(_ sender: UITapGestureRecognizer) {
         whiteColorView.isShapeHidden = true
         redColorView.isShapeHidden = false
         greenColorView.isShapeHidden = true
+        anyColorView.isShapeHidden = true
     }
     
     @IBAction func greenColorTapped(_ sender: UITapGestureRecognizer) {
         whiteColorView.isShapeHidden = true
         redColorView.isShapeHidden = true
         greenColorView.isShapeHidden = false
+        anyColorView.isShapeHidden = true
+    }
+    
+    @IBAction func anyColorTapped(_ sender: UITapGestureRecognizer) {
+        whiteColorView.isShapeHidden = true
+        redColorView.isShapeHidden = true
+        greenColorView.isShapeHidden = true
+        anyColorView.isShapeHidden = false
     }
     
     private var screenFrame = UIScreen.main.bounds
@@ -64,6 +76,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         greenColorView.layer.borderWidth = 1
         greenColorView.layer.borderColor = UIColor.black.cgColor
         
+        anyColorView.layer.borderWidth = 1
+        anyColorView.layer.borderColor = UIColor.black.cgColor
     }
     
     private func initDatePicker() {

@@ -88,13 +88,17 @@
                                                             <outletCollection property="gestureRecognizers" destination="8Db-5B-J7g" appends="YES" id="5TE-q6-7T9"/>
                                                         </connections>
                                                     </view>
-                                                    <view contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="fTg-cB-ZrX" userLabel="Color Picker View">
+                                                    <view contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="fTg-cB-ZrX" userLabel="Color Picker View" customClass="ColorSquareView" customModule="Notes" customModuleProvider="target">
                                                         <rect key="frame" x="218" y="0.0" width="70" height="70"/>
                                                         <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <gestureRecognizers/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="fTg-cB-ZrX" secondAttribute="height" multiplier="1:1" id="Ssb-tU-eay"/>
                                                         </constraints>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="W5y-B6-9bL" appends="YES" id="r2l-dX-51O"/>
+                                                        </connections>
                                                     </view>
                                                 </subviews>
                                                 <constraints>
@@ -139,6 +143,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="anyColorView" destination="fTg-cB-ZrX" id="KlB-gl-iaP"/>
                         <outlet property="datePickerView" destination="Omz-Jj-8du" id="i4l-pY-QoH"/>
                         <outlet property="greenColorView" destination="rU2-Mf-j7J" id="jFc-Qd-d49"/>
                         <outlet property="redColorView" destination="GdC-qx-JOW" id="JYI-8p-F13"/>
@@ -162,6 +167,11 @@
                 <tapGestureRecognizer id="8Db-5B-J7g">
                     <connections>
                         <action selector="greenColorTapped:" destination="BYZ-38-t0r" id="GeI-nC-ZTe"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="W5y-B6-9bL">
+                    <connections>
+                        <action selector="anyColorTapped:" destination="BYZ-38-t0r" id="K5g-VN-0bL"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
