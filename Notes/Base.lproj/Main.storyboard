@@ -98,6 +98,7 @@
                                                         </constraints>
                                                         <connections>
                                                             <outletCollection property="gestureRecognizers" destination="W5y-B6-9bL" appends="YES" id="r2l-dX-51O"/>
+                                                            <outletCollection property="gestureRecognizers" destination="uG0-mq-0PF" appends="YES" id="ZJ0-C1-c3N"/>
                                                         </connections>
                                                     </view>
                                                 </subviews>
@@ -132,18 +133,27 @@
                                     <constraint firstAttribute="bottom" secondItem="ohj-Xp-4dm" secondAttribute="bottom" id="uMv-Dz-FR0"/>
                                 </constraints>
                             </scrollView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8NS-Uz-ZVT" customClass="ColorPickerView" customModule="Notes" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="18" width="320" height="532"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="8NS-Uz-ZVT" secondAttribute="bottom" constant="18" id="1jG-ip-hfo"/>
                             <constraint firstItem="HxN-Od-J5e" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="1r6-HJ-fut"/>
+                            <constraint firstItem="8NS-Uz-ZVT" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="18" id="32h-sY-QjW"/>
                             <constraint firstItem="HxN-Od-J5e" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="C8N-ZD-D1F"/>
                             <constraint firstItem="HxN-Od-J5e" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="GQj-8j-eQc"/>
                             <constraint firstItem="HxN-Od-J5e" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="XRI-gg-1rj"/>
+                            <constraint firstItem="8NS-Uz-ZVT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Yrf-wn-VD5"/>
+                            <constraint firstItem="8NS-Uz-ZVT" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="gFU-nk-6K4"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
                         <outlet property="anyColorView" destination="fTg-cB-ZrX" id="KlB-gl-iaP"/>
+                        <outlet property="colorPickerView" destination="8NS-Uz-ZVT" id="b8D-Q6-nUr"/>
                         <outlet property="datePickerView" destination="Omz-Jj-8du" id="i4l-pY-QoH"/>
                         <outlet property="greenColorView" destination="rU2-Mf-j7J" id="jFc-Qd-d49"/>
                         <outlet property="redColorView" destination="GdC-qx-JOW" id="JYI-8p-F13"/>
@@ -174,6 +184,11 @@
                         <action selector="anyColorTapped:" destination="BYZ-38-t0r" id="K5g-VN-0bL"/>
                     </connections>
                 </tapGestureRecognizer>
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="uG0-mq-0PF">
+                    <connections>
+                        <action selector="anyColorLongPressed:" destination="BYZ-38-t0r" id="fND-jx-3VH"/>
+                    </connections>
+                </pongPressGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="133.125" y="115.14084507042254"/>
         </scene>

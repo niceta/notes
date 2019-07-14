@@ -20,6 +20,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var datePickerView: DatePickerView!
+    @IBOutlet weak var colorPickerView: ColorPickerView!
     
     @IBAction func whiteColorTapped(_ sender: UITapGestureRecognizer) {
         whiteColorView.isShapeHidden = false
@@ -47,6 +48,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
         redColorView.isShapeHidden = true
         greenColorView.isShapeHidden = true
         anyColorView.isShapeHidden = false
+    }
+    
+    @IBAction func anyColorLongPressed(_ sender: UILongPressGestureRecognizer) {
+        colorPickerView.isHidden = false
     }
     
     private var screenFrame = UIScreen.main.bounds

@@ -19,6 +19,9 @@
 		590F0FF322D8C0EA00C7AA2E /* ColorSquareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590F0FF222D8C0EA00C7AA2E /* ColorSquareView.swift */; };
 		590F0FF522DB8A0800C7AA2E /* DatePickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 590F0FF422DB8A0800C7AA2E /* DatePickerView.xib */; };
 		590F0FF722DB8D6900C7AA2E /* DatePickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 590F0FF622DB8D6900C7AA2E /* DatePickerView.swift */; };
+		591B2C0022DBD48C002F2ABF /* ColorPickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591B2BFF22DBD48C002F2ABF /* ColorPickerView.swift */; };
+		591B2C0222DBD5D1002F2ABF /* HSBColorPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 591B2C0122DBD5D1002F2ABF /* HSBColorPicker.swift */; };
+		591B2C0422DBDA84002F2ABF /* ColorPickerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 591B2C0322DBDA84002F2ABF /* ColorPickerView.xib */; };
 		593A54E222C2BC9D00D2C449 /* FileNotebook.swift in Sources */ = {isa = PBXBuildFile; fileRef = 593A54E122C2BC9D00D2C449 /* FileNotebook.swift */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +41,9 @@
 		590F0FF222D8C0EA00C7AA2E /* ColorSquareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorSquareView.swift; sourceTree = "<group>"; };
 		590F0FF422DB8A0800C7AA2E /* DatePickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DatePickerView.xib; sourceTree = "<group>"; };
 		590F0FF622DB8D6900C7AA2E /* DatePickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatePickerView.swift; sourceTree = "<group>"; };
+		591B2BFF22DBD48C002F2ABF /* ColorPickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerView.swift; sourceTree = "<group>"; };
+		591B2C0122DBD5D1002F2ABF /* HSBColorPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HSBColorPicker.swift; sourceTree = "<group>"; };
+		591B2C0322DBDA84002F2ABF /* ColorPickerView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ColorPickerView.xib; sourceTree = "<group>"; };
 		593A54E122C2BC9D00D2C449 /* FileNotebook.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileNotebook.swift; sourceTree = "<group>"; };
 		90A8AE108B5FC4F16F0A8969 /* libPods-Notes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Notes.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF7927B24386225F25B2C0F0 /* Pods-Notes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notes.debug.xcconfig"; path = "Target Support Files/Pods-Notes/Pods-Notes.debug.xcconfig"; sourceTree = "<group>"; };
@@ -95,6 +101,9 @@
 				590F0FF222D8C0EA00C7AA2E /* ColorSquareView.swift */,
 				590F0FF422DB8A0800C7AA2E /* DatePickerView.xib */,
 				590F0FF622DB8D6900C7AA2E /* DatePickerView.swift */,
+				591B2BFF22DBD48C002F2ABF /* ColorPickerView.swift */,
+				591B2C0122DBD5D1002F2ABF /* HSBColorPicker.swift */,
+				591B2C0322DBDA84002F2ABF /* ColorPickerView.xib */,
 			);
 			path = Notes;
 			sourceTree = "<group>";
@@ -181,6 +190,7 @@
 				590C4B1B22B8260600051B46 /* LaunchScreen.storyboard in Resources */,
 				590C4B1822B8260600051B46 /* Assets.xcassets in Resources */,
 				590F0FF522DB8A0800C7AA2E /* DatePickerView.xib in Resources */,
+				591B2C0422DBDA84002F2ABF /* ColorPickerView.xib in Resources */,
 				590C4B1322B8260400051B46 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -222,7 +232,9 @@
 				590C4B1622B8260400051B46 /* Notes.xcdatamodeld in Sources */,
 				590C4B2722B94AB300051B46 /* NoteExtensions.swift in Sources */,
 				590C4B0E22B8260400051B46 /* AppDelegate.swift in Sources */,
+				591B2C0022DBD48C002F2ABF /* ColorPickerView.swift in Sources */,
 				590F0FF322D8C0EA00C7AA2E /* ColorSquareView.swift in Sources */,
+				591B2C0222DBD5D1002F2ABF /* HSBColorPicker.swift in Sources */,
 				590F0FF722DB8D6900C7AA2E /* DatePickerView.swift in Sources */,
 				590C4B2322B8263C00051B46 /* Note.swift in Sources */,
 			);
