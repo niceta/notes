@@ -74,6 +74,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         whiteColorView.layer.borderWidth = 1
         whiteColorView.layer.borderColor = UIColor.black.cgColor
+        whiteColorView.isShapeHidden = false
         
         redColorView.layer.borderWidth = 1
         redColorView.layer.borderColor = UIColor.black.cgColor
@@ -83,6 +84,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         anyColorView.layer.borderWidth = 1
         anyColorView.layer.borderColor = UIColor.black.cgColor
+        
+        colorPickerView.colorPicker.delegate = self
     }
     
     private func initDatePicker() {
@@ -144,5 +147,12 @@ class ViewController: UIViewController, UITextFieldDelegate {
             frame = screenFrame
         }
         self.view.frame = frame
+    }
+}
+
+extension ViewController: HSBColorPickerDelegate {
+    func HSBColorColorPickerTouched(sender: HSBColorPicker, color: UIColor, point: CGPoint, state: UIGestureRecognizer.State) {
+        colorPickerView.preview.backgroundColor = color
+        anyColorView.backgroundColor = color
     }
 }

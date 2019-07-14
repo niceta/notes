@@ -9,7 +9,9 @@
 import UIKit
 
 
-class ColorPickerView: UIView {    
+class ColorPickerView: UIView {
+    @IBOutlet weak var preview: UIView!
+    @IBOutlet weak var colorPicker: HSBColorPicker!
     @IBAction func applyButtonTapped(_ sender: UIButton) {
         self.isHidden = true
     }
@@ -28,6 +30,17 @@ class ColorPickerView: UIView {
         let xib = loadViewFromXib()
         xib.frame = self.bounds
         xib.autoresizingMask = [.flexibleWidth, .flexibleHeight]
+        let thinWidth = preview.bounds.width / 100
+        let mediumRadius = preview.bounds.width / 10
+        
+        preview.layer.borderColor = UIColor.lightGray.cgColor
+        preview.layer.borderWidth = thinWidth
+        preview.layer.cornerRadius = mediumRadius
+        
+        colorPicker.layer.borderColor = UIColor.lightGray.cgColor
+        colorPicker.layer.borderWidth = thinWidth
+        colorPicker.layer.cornerRadius = mediumRadius
+        
         self.addSubview(xib)
     }
     
