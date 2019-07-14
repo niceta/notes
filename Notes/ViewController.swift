@@ -19,6 +19,24 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var datePickerView: DatePickerView!
     
+    @IBAction func whiteColorTapped(_ sender: UITapGestureRecognizer) {
+        whiteColorView.isShapeHidden = false
+        redColorView.isShapeHidden = true
+        greenColorView.isShapeHidden = true
+    }
+    
+    @IBAction func redColorTapped(_ sender: UITapGestureRecognizer) {
+        whiteColorView.isShapeHidden = true
+        redColorView.isShapeHidden = false
+        greenColorView.isShapeHidden = true
+    }
+    
+    @IBAction func greenColorTapped(_ sender: UITapGestureRecognizer) {
+        whiteColorView.isShapeHidden = true
+        redColorView.isShapeHidden = true
+        greenColorView.isShapeHidden = false
+    }
+    
     private var screenFrame = UIScreen.main.bounds
     private var datePicker: UIDatePicker?
     

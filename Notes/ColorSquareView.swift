@@ -25,7 +25,7 @@ class ColorSquareView: UIView {
             setNeedsDisplay()
         }
     }
-    @IBInspectable var isShapeHidden: Bool = false {
+    @IBInspectable var isShapeHidden: Bool = true {
         didSet {
             setNeedsDisplay()
         }

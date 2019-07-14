@@ -56,25 +56,37 @@
                                                         <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <gestureRecognizers/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="Cu7-iW-L0L" secondAttribute="height" multiplier="1:1" id="R7A-1R-h9u"/>
                                                         </constraints>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="Ro8-2k-wl4" appends="YES" id="bDc-Yc-1if"/>
+                                                        </connections>
                                                     </view>
                                                     <view contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="GdC-qx-JOW" userLabel="R Color View" customClass="ColorSquareView" customModule="Notes" customModuleProvider="target">
                                                         <rect key="frame" x="72.5" y="0.0" width="70" height="70"/>
                                                         <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <gestureRecognizers/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="GdC-qx-JOW" secondAttribute="height" multiplier="1:1" id="OFC-dU-lPm"/>
                                                         </constraints>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="nr0-qs-4Iy" appends="YES" id="fe6-sy-8hn"/>
+                                                        </connections>
                                                     </view>
                                                     <view contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="rU2-Mf-j7J" userLabel="G Color View" customClass="ColorSquareView" customModule="Notes" customModuleProvider="target">
                                                         <rect key="frame" x="145.5" y="0.0" width="70" height="70"/>
                                                         <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <gestureRecognizers/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" secondItem="rU2-Mf-j7J" secondAttribute="height" multiplier="1:1" id="By8-FD-Q8N"/>
                                                         </constraints>
+                                                        <connections>
+                                                            <outletCollection property="gestureRecognizers" destination="8Db-5B-J7g" appends="YES" id="5TE-q6-7T9"/>
+                                                        </connections>
                                                     </view>
                                                     <view contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="fTg-cB-ZrX" userLabel="Color Picker View">
                                                         <rect key="frame" x="218" y="0.0" width="70" height="70"/>
@@ -137,6 +149,21 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Ro8-2k-wl4">
+                    <connections>
+                        <action selector="whiteColorTapped:" destination="BYZ-38-t0r" id="C7X-m7-2NM"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="nr0-qs-4Iy">
+                    <connections>
+                        <action selector="redColorTapped:" destination="BYZ-38-t0r" id="9ZO-Hy-S1z"/>
+                    </connections>
+                </tapGestureRecognizer>
+                <tapGestureRecognizer id="8Db-5B-J7g">
+                    <connections>
+                        <action selector="greenColorTapped:" destination="BYZ-38-t0r" id="GeI-nC-ZTe"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="133.125" y="115.14084507042254"/>
         </scene>
