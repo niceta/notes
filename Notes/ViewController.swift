@@ -84,6 +84,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         anyColorView.layer.borderWidth = 1
         anyColorView.layer.borderColor = UIColor.black.cgColor
+        anyColorView.gradientOfView(withColours: UIColor.red,UIColor.green, UIColor.blue)
         
         colorPickerView.colorPicker.delegate = self
     }
@@ -154,5 +155,26 @@ extension ViewController: HSBColorPickerDelegate {
     func HSBColorColorPickerTouched(sender: HSBColorPicker, color: UIColor, point: CGPoint, state: UIGestureRecognizer.State) {
         colorPickerView.preview.backgroundColor = color
         anyColorView.backgroundColor = color
+        anyColorView.layer.sublayers = nil
+        
+        whiteColorView.isShapeHidden = true
+        redColorView.isShapeHidden = true
+        greenColorView.isShapeHidden = true
+        anyColorView.isShapeHidden = false
+    }
+}
+
+extension UIView {
+    func gradientOfView(withColours: UIColor...) {
+        
+        var cgColours = [CGColor]()
+        
+        for colour in withColours {
+            cgColours.append(colour.cgColor)
+        }
+        let grad = CAGradientLayer()
+        grad.frame = self.bounds
+        grad.colors = cgColours
+        self.layer.insertSublayer(grad, at: 0)
     }
 }
