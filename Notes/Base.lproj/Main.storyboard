@@ -42,13 +42,6 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                             </textView>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ka8-GL-fqX">
-                                                <rect key="frame" x="16" y="159" width="288" height="70"/>
-                                                <color key="backgroundColor" red="1" green="0.2900573608" blue="0.21556685889999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="70" id="cbd-b0-g1E"/>
-                                                </constraints>
-                                            </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Omz-Jj-8du" customClass="DatePickerView" customModule="Notes" customModuleProvider="target">
                                                 <rect key="frame" x="16" y="120" width="288" height="31"/>
                                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -56,22 +49,62 @@
                                                     <constraint firstAttribute="height" constant="31" id="zkA-zt-fB5"/>
                                                 </constraints>
                                             </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="fJO-by-Wib">
+                                                <rect key="frame" x="16" y="159" width="288" height="70"/>
+                                                <subviews>
+                                                    <view contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Cu7-iW-L0L" userLabel="W Color View" customClass="ColorSquareView" customModule="Notes" customModuleProvider="target">
+                                                        <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="Cu7-iW-L0L" secondAttribute="height" multiplier="1:1" id="R7A-1R-h9u"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="GdC-qx-JOW" userLabel="R Color View" customClass="ColorSquareView" customModule="Notes" customModuleProvider="target">
+                                                        <rect key="frame" x="72.5" y="0.0" width="70" height="70"/>
+                                                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="GdC-qx-JOW" secondAttribute="height" multiplier="1:1" id="OFC-dU-lPm"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="rU2-Mf-j7J" userLabel="G Color View" customClass="ColorSquareView" customModule="Notes" customModuleProvider="target">
+                                                        <rect key="frame" x="145.5" y="0.0" width="70" height="70"/>
+                                                        <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="rU2-Mf-j7J" secondAttribute="height" multiplier="1:1" id="By8-FD-Q8N"/>
+                                                        </constraints>
+                                                    </view>
+                                                    <view contentMode="scaleToFill" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="fTg-cB-ZrX" userLabel="Color Picker View">
+                                                        <rect key="frame" x="218" y="0.0" width="70" height="70"/>
+                                                        <color key="backgroundColor" red="0.0" green="0.0" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="width" secondItem="fTg-cB-ZrX" secondAttribute="height" multiplier="1:1" id="Ssb-tU-eay"/>
+                                                        </constraints>
+                                                    </view>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="70" id="ANL-if-pfE"/>
+                                                </constraints>
+                                            </stackView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="ARd-1X-1OO" secondAttribute="trailing" constant="8" id="A9P-4h-zM1"/>
                                             <constraint firstAttribute="trailing" secondItem="Tyr-Zw-3cB" secondAttribute="trailing" constant="8" id="BqM-6p-l0f"/>
+                                            <constraint firstAttribute="trailing" secondItem="fJO-by-Wib" secondAttribute="trailing" constant="16" id="EBj-qU-MVs"/>
                                             <constraint firstItem="Omz-Jj-8du" firstAttribute="top" secondItem="ARd-1X-1OO" secondAttribute="bottom" constant="8" id="G6R-j8-pG1"/>
                                             <constraint firstItem="ARd-1X-1OO" firstAttribute="leading" secondItem="ohj-Xp-4dm" secondAttribute="leading" constant="8" id="Kvb-Eh-NNX"/>
+                                            <constraint firstItem="fJO-by-Wib" firstAttribute="leading" secondItem="ohj-Xp-4dm" secondAttribute="leading" constant="16" id="N1g-K5-b3S"/>
                                             <constraint firstItem="ARd-1X-1OO" firstAttribute="top" secondItem="Tyr-Zw-3cB" secondAttribute="bottom" constant="16" id="NRT-To-g4n"/>
                                             <constraint firstItem="Tyr-Zw-3cB" firstAttribute="leading" secondItem="ohj-Xp-4dm" secondAttribute="leading" constant="8" id="OhR-HP-FXa"/>
-                                            <constraint firstItem="ka8-GL-fqX" firstAttribute="top" secondItem="Omz-Jj-8du" secondAttribute="bottom" constant="8" id="VLq-X7-MS0"/>
-                                            <constraint firstAttribute="trailing" secondItem="ka8-GL-fqX" secondAttribute="trailing" constant="16" id="YD0-Cd-p5Y"/>
+                                            <constraint firstItem="fJO-by-Wib" firstAttribute="top" secondItem="Omz-Jj-8du" secondAttribute="bottom" constant="8" id="WBT-Cj-R1s"/>
                                             <constraint firstItem="Omz-Jj-8du" firstAttribute="leading" secondItem="ohj-Xp-4dm" secondAttribute="leading" constant="16" id="cQU-F9-VVe"/>
-                                            <constraint firstItem="ka8-GL-fqX" firstAttribute="leading" secondItem="ohj-Xp-4dm" secondAttribute="leading" constant="16" id="ekY-Yr-L3B"/>
                                             <constraint firstItem="Tyr-Zw-3cB" firstAttribute="top" secondItem="ohj-Xp-4dm" secondAttribute="top" constant="16" id="fb1-xe-WuW"/>
+                                            <constraint firstAttribute="bottom" secondItem="fJO-by-Wib" secondAttribute="bottom" constant="50" id="nBt-Yv-1j2"/>
                                             <constraint firstAttribute="trailing" secondItem="Omz-Jj-8du" secondAttribute="trailing" constant="16" id="ooh-EP-IO8"/>
-                                            <constraint firstAttribute="bottom" secondItem="ka8-GL-fqX" secondAttribute="bottom" constant="50" id="sXq-Fm-05l"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -95,9 +128,12 @@
                     </view>
                     <connections>
                         <outlet property="datePickerView" destination="Omz-Jj-8du" id="i4l-pY-QoH"/>
+                        <outlet property="greenColorView" destination="rU2-Mf-j7J" id="jFc-Qd-d49"/>
+                        <outlet property="redColorView" destination="GdC-qx-JOW" id="JYI-8p-F13"/>
                         <outlet property="scrollView" destination="HxN-Od-J5e" id="IX5-DT-SY7"/>
                         <outlet property="textField" destination="Tyr-Zw-3cB" id="Spq-0t-BrJ"/>
                         <outlet property="textView" destination="ARd-1X-1OO" id="pVI-GC-Led"/>
+                        <outlet property="whiteColorView" destination="Cu7-iW-L0L" id="ZdZ-lG-aFF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

@@ -10,6 +10,10 @@ import UIKit
 
 class ViewController: UIViewController, UITextFieldDelegate {
     
+    @IBOutlet weak var whiteColorView: ColorSquareView!
+    @IBOutlet weak var redColorView: ColorSquareView!
+    @IBOutlet weak var greenColorView: ColorSquareView!
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var textView: UITextView!
     @IBOutlet weak var textField: UITextField!
@@ -39,14 +43,14 @@ class ViewController: UIViewController, UITextFieldDelegate {
         view.addGestureRecognizer(tapGesture)
         datePickerView.dateFieldView.inputView = datePicker
         
-//        whiteSquare.layer.borderWidth = 1
-//        whiteSquare.layer.borderColor = UIColor.black.cgColor
-//
-//        redSquare.layer.borderWidth = 1
-//        redSquare.layer.borderColor = UIColor.black.cgColor
-//
-//        greenSquare.layer.borderWidth = 1
-//        greenSquare.layer.borderColor = UIColor.black.cgColor
+        whiteColorView.layer.borderWidth = 1
+        whiteColorView.layer.borderColor = UIColor.black.cgColor
+
+        redColorView.layer.borderWidth = 1
+        redColorView.layer.borderColor = UIColor.black.cgColor
+
+        greenColorView.layer.borderWidth = 1
+        greenColorView.layer.borderColor = UIColor.black.cgColor
     }
     
     @objc func viewTapped(gestureRecognier: UITapGestureRecognizer) {
