@@ -87,6 +87,7 @@ extension ViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         selectedNote = notebook.notesArray[indexPath.row]
+        tableView.deselectRow(at: IndexPath(row: indexPath.row, section: indexPath.section), animated: true)
         performSegue(withIdentifier: "EditNoteSegue", sender: nil)
     }
 }

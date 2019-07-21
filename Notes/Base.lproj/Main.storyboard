@@ -227,6 +227,7 @@
                         <outlet property="textField" destination="Tyr-Zw-3cB" id="Spq-0t-BrJ"/>
                         <outlet property="textView" destination="ARd-1X-1OO" id="pVI-GC-Led"/>
                         <outlet property="whiteColorView" destination="Cu7-iW-L0L" id="ZdZ-lG-aFF"/>
+                        <segue destination="AG0-p5-9Gk" kind="show" identifier="showColorPickerSegue" id="Pjz-Zx-Tto"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -258,17 +259,82 @@
             </objects>
             <point key="canvasLocation" x="-6" y="128"/>
         </scene>
+        <!--Color Picker View Controller-->
+        <scene sceneID="d5e-5c-Nhx">
+            <objects>
+                <viewController id="AG0-p5-9Gk" customClass="ColorPickerViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sCi-7g-H5g">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uMF-LW-rPJ">
+                                <rect key="frame" x="20" y="84" width="85" height="85"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="85" id="XRq-ok-mku"/>
+                                    <constraint firstAttribute="height" constant="85" id="s7q-Mo-ZDp"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="e02-MD-5xz" customClass="HSBColorPicker" customModule="Notes" customModuleProvider="target">
+                                <rect key="frame" x="16" y="203" width="288" height="260"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kPX-tq-w71">
+                                <rect key="frame" x="140" y="479" width="40" height="30"/>
+                                <state key="normal" title="Apply"/>
+                                <connections>
+                                    <segue destination="zcr-Az-Wmt" kind="unwind" identifier="backToEditNoteSegue" unwindAction="unwindToStartScreenWithSegue:" id="K50-qN-m4h"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="e02-MD-5xz" firstAttribute="leading" secondItem="sCi-7g-H5g" secondAttribute="leading" constant="16" id="2LC-sG-QNj"/>
+                            <constraint firstItem="uMF-LW-rPJ" firstAttribute="top" secondItem="6c3-Id-4Ru" secondAttribute="top" constant="20" id="IfJ-mM-sxV"/>
+                            <constraint firstItem="kPX-tq-w71" firstAttribute="top" secondItem="e02-MD-5xz" secondAttribute="bottom" constant="16" id="K3q-J1-FiU"/>
+                            <constraint firstItem="6c3-Id-4Ru" firstAttribute="bottom" secondItem="kPX-tq-w71" secondAttribute="bottom" constant="10" id="eoT-M2-MVQ"/>
+                            <constraint firstItem="6c3-Id-4Ru" firstAttribute="trailing" secondItem="e02-MD-5xz" secondAttribute="trailing" constant="16" id="gEg-Sd-UYo"/>
+                            <constraint firstItem="kPX-tq-w71" firstAttribute="centerX" secondItem="sCi-7g-H5g" secondAttribute="centerX" id="hq7-ks-fCP"/>
+                            <constraint firstItem="e02-MD-5xz" firstAttribute="top" secondItem="uMF-LW-rPJ" secondAttribute="bottom" constant="34" id="lLW-DV-Qg9"/>
+                            <constraint firstItem="uMF-LW-rPJ" firstAttribute="leading" secondItem="sCi-7g-H5g" secondAttribute="leading" constant="20" id="lRw-Za-PLs"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6c3-Id-4Ru"/>
+                    </view>
+                    <connections>
+                        <outlet property="colorPicker" destination="e02-MD-5xz" id="iUM-Rs-awP"/>
+                        <outlet property="preview" destination="uMF-LW-rPJ" id="bpP-hK-r8j"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KbB-7U-r4g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="zcr-Az-Wmt" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="-9.375" y="961.26760563380287"/>
+        </scene>
         <!--Галерея-->
         <scene sceneID="Uqp-7y-Mjn">
             <objects>
-                <viewController id="Tnc-Px-y51" sceneMemberID="viewController">
+                <viewController id="Tnc-Px-y51" customClass="GalleryViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bu9-6p-dzv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lBL-Pq-dge">
+                                <rect key="frame" x="0.0" y="20" width="320" height="499"/>
+                            </scrollView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="lBL-Pq-dge" firstAttribute="top" secondItem="b8y-I3-gF2" secondAttribute="top" id="McG-90-yEO"/>
+                            <constraint firstItem="b8y-I3-gF2" firstAttribute="trailing" secondItem="lBL-Pq-dge" secondAttribute="trailing" id="UFT-Hv-sjP"/>
+                            <constraint firstItem="lBL-Pq-dge" firstAttribute="leading" secondItem="b8y-I3-gF2" secondAttribute="leading" id="bxX-1v-m9S"/>
+                            <constraint firstItem="b8y-I3-gF2" firstAttribute="bottom" secondItem="lBL-Pq-dge" secondAttribute="bottom" id="yOj-9c-Tjm"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="b8y-I3-gF2"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Галерея" image="camera" id="LSl-9K-hHc"/>
+                    <connections>
+                        <outlet property="scrollView" destination="lBL-Pq-dge" id="AgX-FL-S2b"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="c6H-rJ-Xcz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -298,6 +364,6 @@
         <image name="note" width="29" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Kop-NA-uFl"/>
+        <segue reference="Az8-aZ-eKW"/>
     </inferredMetricsTieBreakers>
 </document>

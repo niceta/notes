@@ -25,6 +25,12 @@ class EditNoteViewController: UIViewController, UITextFieldDelegate {
     weak var delegate: ViewController?
     var color: UIColor? = .white
     var selectedNote: Note?
+    var isAnyColorPressed = false
+    var didReturnFromColorPicker = false
+    
+    @IBAction func unwindToStartScreen(segue: UIStoryboardSegue) {
+        
+    }
     
     @IBAction func whiteColorTapped(_ sender: UITapGestureRecognizer) {
         whiteColorView.isShapeHidden = false
@@ -66,8 +72,18 @@ class EditNoteViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func anyColorLongPressed(_ sender: UILongPressGestureRecognizer) {
-        view.endEditing(true) // чтобы убрать клавиатуру при переходе к выбору цвета
-        colorPickerView.isHidden = false
+        //view.endEditing(true) // чтобы убрать клавиатуру при переходе к выбору цвета
+        //colorPickerView.isHidden = false
+        if sender.state == .began {
+            performSegue(withIdentifier: "showColorPickerSegue", sender: nil)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let controller = segue.destination as? ColorPickerViewController, segue.identifier == "showColorPickerSegue" {
+            controller.delegate = self
+            isAnyColorPressed = true
+        }
     }
     
     private var screenFrame = UIScreen.main.bounds
@@ -102,12 +118,14 @@ class EditNoteViewController: UIViewController, UITextFieldDelegate {
         anyColorView.layer.borderColor = UIColor.black.cgColor
         anyColorView.gradientOfView(withColours: UIColor.red,UIColor.green, UIColor.blue)
         
-        colorPickerView.colorPicker.delegate = self
+        //colorPickerView.colorPicker.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        guard let note = selectedNote else {
+        isAnyColorPressed = false
+        
+        guard let note = selectedNote, !didReturnFromColorPicker else {
             return
         }
         textField.text = note.title
@@ -171,7 +189,9 @@ class EditNoteViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
         
-        guard let strongDelegate = delegate else {
+        didReturnFromColorPicker = false
+        
+        guard let strongDelegate = delegate, isAnyColorPressed == false else {
             return
         }
         
@@ -203,7 +223,11 @@ class EditNoteViewController: UIViewController, UITextFieldDelegate {
         } else {
             guard
                 let uid = selectedNote?.uid,
-                let noteIdx = (strongDelegate.notebook.notesArray.firstIndex(where: {$0.uid == uid}))
+                let noteIdx = (strongDelegate.notebook.notesArray.firstIndex(where: {$0.uid == uid})),
+                selectedNote?.title != note.title ||
+                selectedNote?.content != note.content ||
+                selectedNote?.color != note.color ||
+                selectedNote?.selfDestructionDate != note.selfDestructionDate
             else {
                 return
             }
@@ -251,7 +275,7 @@ class EditNoteViewController: UIViewController, UITextFieldDelegate {
     }
 }
 
-extension EditNoteViewController: HSBColorPickerDelegate {
+/*extension EditNoteViewController: HSBColorPickerDelegate {
     func HSBColorColorPickerTouched(sender: HSBColorPicker, color: UIColor, point: CGPoint, state: UIGestureRecognizer.State) {
         colorPickerView.preview.backgroundColor = color
         anyColorView.backgroundColor = color
@@ -265,7 +289,7 @@ extension EditNoteViewController: HSBColorPickerDelegate {
         self.color = color
     }
 }
-
+*/
 extension UIView {
     func gradientOfView(withColours: UIColor...) {
         

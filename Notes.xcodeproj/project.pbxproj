@@ -26,6 +26,8 @@
 		5951E2A922E4A55500893980 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5951E2A822E4A55500893980 /* ViewController.swift */; };
 		5951E2AC22E4A59F00893980 /* NoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5951E2AA22E4A59F00893980 /* NoteTableViewCell.swift */; };
 		5951E2AD22E4A59F00893980 /* NoteTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 5951E2AB22E4A59F00893980 /* NoteTableViewCell.xib */; };
+		5951E2B522E4F95500893980 /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5951E2B422E4F95500893980 /* GalleryViewController.swift */; };
+		5951E2B722E4FF1600893980 /* ColorPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5951E2B622E4FF1600893980 /* ColorPickerViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -51,6 +53,8 @@
 		5951E2A822E4A55500893980 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		5951E2AA22E4A59F00893980 /* NoteTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTableViewCell.swift; sourceTree = "<group>"; };
 		5951E2AB22E4A59F00893980 /* NoteTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoteTableViewCell.xib; sourceTree = "<group>"; };
+		5951E2B422E4F95500893980 /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
+		5951E2B622E4FF1600893980 /* ColorPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorPickerViewController.swift; sourceTree = "<group>"; };
 		90A8AE108B5FC4F16F0A8969 /* libPods-Notes.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Notes.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF7927B24386225F25B2C0F0 /* Pods-Notes.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Notes.debug.xcconfig"; path = "Target Support Files/Pods-Notes/Pods-Notes.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -171,6 +175,8 @@
 			children = (
 				590C4B0F22B8260400051B46 /* EditNoteViewController.swift */,
 				5951E2A822E4A55500893980 /* ViewController.swift */,
+				5951E2B422E4F95500893980 /* GalleryViewController.swift */,
+				5951E2B622E4FF1600893980 /* ColorPickerViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -290,10 +296,12 @@
 				590C4B1622B8260400051B46 /* Notes.xcdatamodeld in Sources */,
 				590C4B2722B94AB300051B46 /* NoteExtensions.swift in Sources */,
 				5951E2A922E4A55500893980 /* ViewController.swift in Sources */,
+				5951E2B522E4F95500893980 /* GalleryViewController.swift in Sources */,
 				590C4B0E22B8260400051B46 /* AppDelegate.swift in Sources */,
 				591B2C0022DBD48C002F2ABF /* ColorPickerView.swift in Sources */,
 				590F0FF322D8C0EA00C7AA2E /* ColorSquareView.swift in Sources */,
 				591B2C0222DBD5D1002F2ABF /* HSBColorPicker.swift in Sources */,
+				5951E2B722E4FF1600893980 /* ColorPickerViewController.swift in Sources */,
 				590F0FF722DB8D6900C7AA2E /* DatePickerView.swift in Sources */,
 				590C4B2322B8263C00051B46 /* Note.swift in Sources */,
 				5951E2AC22E4A59F00893980 /* NoteTableViewCell.swift in Sources */,
