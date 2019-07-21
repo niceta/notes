@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Bdi-8P-MMn">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,16 +10,81 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Navigation Controller-->
+        <scene sceneID="uge-f5-i6f">
+            <objects>
+                <navigationController id="Bdi-8P-MMn" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="PTS-cS-X8f">
+                        <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="gp9-GD-7Cf" kind="relationship" relationship="rootViewController" id="1gM-If-WjU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Emf-K1-Ccu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1602" y="128"/>
+        </scene>
+        <!--Заметки-->
+        <scene sceneID="II9-0w-wMW">
+            <objects>
+                <viewController id="gp9-GD-7Cf" customClass="ViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="dv6-ln-tCY">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ekK-g1-5gJ">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="gp9-GD-7Cf" id="Mpl-Aj-2uR"/>
+                                    <outlet property="delegate" destination="gp9-GD-7Cf" id="BSq-Zx-k8b"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ekK-g1-5gJ" firstAttribute="top" secondItem="Oq7-qC-n1v" secondAttribute="top" id="BDF-ly-ddJ"/>
+                            <constraint firstItem="Oq7-qC-n1v" firstAttribute="bottom" secondItem="ekK-g1-5gJ" secondAttribute="bottom" id="JtX-wr-Zf2"/>
+                            <constraint firstItem="Oq7-qC-n1v" firstAttribute="trailing" secondItem="ekK-g1-5gJ" secondAttribute="trailing" id="NsO-Ct-OuG"/>
+                            <constraint firstItem="ekK-g1-5gJ" firstAttribute="leading" secondItem="Oq7-qC-n1v" secondAttribute="leading" id="oAI-PJ-kdY"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Oq7-qC-n1v"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Заметки" id="UZX-8o-QfD">
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="E4I-FL-CmQ">
+                            <connections>
+                                <action selector="didTapEdit:" destination="gp9-GD-7Cf" id="liZ-bd-ayM"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="Ntv-1E-gO2">
+                            <connections>
+                                <action selector="didTapAddButton:" destination="gp9-GD-7Cf" id="udI-Uz-gbx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="editButton" destination="E4I-FL-CmQ" id="MID-7j-dJG"/>
+                        <outlet property="tableView" destination="ekK-g1-5gJ" id="Mi3-fw-IQx"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="ShowEditScreen" id="Az8-aZ-eKW"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="EditNoteSegue" id="Kop-NA-uFl"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Ce-Dg-CDQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-780" y="128"/>
+        </scene>
+        <!--Edit Note View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="EditNoteViewController" customModule="Notes" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HxN-Od-J5e">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ohj-Xp-4dm">
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="279"/>
@@ -134,7 +199,7 @@
                                 </constraints>
                             </scrollView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8NS-Uz-ZVT" customClass="ColorPickerView" customModule="Notes" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="20" width="320" height="548"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -190,7 +255,10 @@
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="133.125" y="115.14084507042254"/>
+            <point key="canvasLocation" x="-6" y="128"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Kop-NA-uFl"/>
+    </inferredMetricsTieBreakers>
 </document>

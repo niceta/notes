@@ -72,6 +72,50 @@ extension Note {
     }
 }
 
+extension Note {
+    static var exampleNotes: [Note] {
+        return [
+            Note(title: "first",
+                     content: "some content",
+                     priority: .normal,
+                     color: .red,
+                     selfDestructionDate: nil),
+            Note(title: "second",
+                 content: "some long content some long content some long content some long content some long content some long content some long content some long content some long content some long content some long content some long content some long content some long content some long content some long content some long content some long content some long content some long content",
+                 priority: .high,
+                 color: .blue,
+                 selfDestructionDate: Date()),
+            Note(title: "third",
+                 content: "third content",
+                 priority: .low),
+            Note(title: "еще заметка",
+                 content: "some long content some long content some long content some long content some long content some long content some long content some long content some long content some long content some long content some long content some long content some long content some long content some long content some long content some long content some long content some long content",
+                 priority: .low,
+                 color: .green),
+            Note(title: "и еще",
+                 content: "some long content some long content some long content some long content some long content some long content some long content some long content some long content some long content some long content some long content some long content some long content some long content some long content some long content some long content some long content some long content",
+                 priority: .low,
+                 color: .gray),
+            Note(title: "и какая то еще",
+                 content: "third content",
+                 priority: .low,
+                 color: .black),
+            Note(title: "и какая то еще 1",
+                 content: "third content",
+                 priority: .low,
+                 color: .purple),
+            Note(title: "и какая то еще 2",
+                 content: "third content",
+                 priority: .low,
+                 color: .orange),
+            Note(title: "и какая то еще 3",
+                 content: "third content",
+                 priority: .low,
+                 color: .yellow)
+        ]
+    }
+}
+
 extension UIColor {
     var rgba: [CGFloat] {
         var red: CGFloat = 0

@@ -11,20 +11,25 @@ import Foundation
 
 class FileNotebook {
     private(set) var notes = [String: Note]()
+    private(set) var notesArray = [Note]()
+    
     private let dirName = "notebook"
     // В случае дубликата - создаю новую заметку-копию,
     // в которой только переопределяю uid по дефолту
     func add(_ note: Note) {
         if notes[note.uid] == nil {
             notes[note.uid] = note
+            notesArray.insert(note, at: 0)
         } else {
             let newUid = UUID().uuidString
-            notes[newUid] = Note(title: note.title,
+            let newNote = Note(title: note.title,
                                  content: note.content,
                                  priority: note.priority,
                                  uid: newUid,
                                  color: note.color,
                                  selfDestructionDate: note.selfDestructionDate)
+            notes[newUid] = newNote
+            notesArray.insert(newNote, at: 0)
         }
     }
     
@@ -32,6 +37,7 @@ class FileNotebook {
         // если элемента по ключу нет, то removeValue
         // просто вернет nil, ничего плохого не будет
         notes.removeValue(forKey: uid)
+        notesArray = notesArray.filter {$0.uid != uid} 
     }
     
     func saveToFile() {
@@ -72,5 +78,21 @@ class FileNotebook {
         } else {
             print("File doesn't exist")
         }
+    }
+}
+
+extension FileNotebook {
+    var toArray: [Note] {
+        return self.notes.map { $1 }
+    }
+}
+
+extension FileNotebook {
+    static var exampleNotebook: FileNotebook {
+        let notebook = FileNotebook()
+        Note.exampleNotes.forEach { note in
+            notebook.add(note)
+        }
+        return notebook
     }
 }

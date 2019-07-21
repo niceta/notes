@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITextFieldDelegate {
+class EditNoteViewController: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var whiteColorView: ColorSquareView!
     @IBOutlet weak var redColorView: ColorSquareView!
@@ -22,11 +22,17 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var datePickerView: DatePickerView!
     @IBOutlet weak var colorPickerView: ColorPickerView!
     
+    weak var delegate: ViewController?
+    var color: UIColor? = .white
+    var selectedNote: Note?
+    
     @IBAction func whiteColorTapped(_ sender: UITapGestureRecognizer) {
         whiteColorView.isShapeHidden = false
         redColorView.isShapeHidden = true
         greenColorView.isShapeHidden = true
         anyColorView.isShapeHidden = true
+        
+        color = .white
     }
     
     @IBAction func redColorTapped(_ sender: UITapGestureRecognizer) {
@@ -34,6 +40,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         redColorView.isShapeHidden = false
         greenColorView.isShapeHidden = true
         anyColorView.isShapeHidden = true
+        
+        color = .red
     }
     
     @IBAction func greenColorTapped(_ sender: UITapGestureRecognizer) {
@@ -41,6 +49,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         redColorView.isShapeHidden = true
         greenColorView.isShapeHidden = false
         anyColorView.isShapeHidden = true
+        
+        color = .green
     }
     
     @IBAction func anyColorTapped(_ sender: UITapGestureRecognizer) {
@@ -51,6 +61,8 @@ class ViewController: UIViewController, UITextFieldDelegate {
         redColorView.isShapeHidden = true
         greenColorView.isShapeHidden = true
         anyColorView.isShapeHidden = false
+        
+        color = anyColorView.backgroundColor
     }
     
     @IBAction func anyColorLongPressed(_ sender: UILongPressGestureRecognizer) {
@@ -93,6 +105,34 @@ class ViewController: UIViewController, UITextFieldDelegate {
         colorPickerView.colorPicker.delegate = self
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard let note = selectedNote else {
+            return
+        }
+        textField.text = note.title
+        textView.text = note.content
+        switch note.color {
+        case .white:
+            whiteColorTapped(.init())
+        case .green:
+            greenColorTapped(.init())
+        case .red:
+            redColorTapped(.init())
+        default:
+            anyColorView.backgroundColor = note.color
+            anyColorView.layer.sublayers = nil
+            anyColorTapped(.init())
+        }
+        if let date = note.selfDestructionDate {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MM/dd/yyyy"
+            datePickerView.dateFieldView.text = formatter.string(from: date)
+            datePickerView.dateFieldView.isHidden = false
+            datePickerView.switchView.isOn = true
+        }
+    }
+    
     private func initDatePicker() {
         let toolbar: UIToolbar = UIToolbar(
             frame: CGRect(x: 0, y: 0,  width: screenFrame.size.width, height: 30)
@@ -106,9 +146,9 @@ class ViewController: UIViewController, UITextFieldDelegate {
         
         datePicker = UIDatePicker()
         datePicker?.datePickerMode = .date
-        datePicker?.addTarget(self, action: #selector(ViewController.dateChanged(datePicker:)), for: .valueChanged)
+        datePicker?.addTarget(self, action: #selector(EditNoteViewController.dateChanged(datePicker:)), for: .valueChanged)
         
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(ViewController.viewTapped(gestureRecognier:)))
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(EditNoteViewController.viewTapped(gestureRecognier:)))
         view.addGestureRecognizer(tapGesture)
         datePickerView.dateFieldView.inputView = datePicker
     }
@@ -130,6 +170,52 @@ class ViewController: UIViewController, UITextFieldDelegate {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillHideNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIDevice.orientationDidChangeNotification, object: nil)
+        
+        guard let strongDelegate = delegate else {
+            return
+        }
+        
+        guard
+            let title = textField.text, !title.isEmpty,
+            let content = textView.text, !content.isEmpty
+        else {
+            return
+        }
+        
+        var destructionDate: Date? = nil
+        if let date = datePickerView.dateFieldView.text, !date.isEmpty {
+            let formatter = DateFormatter()
+            formatter.dateFormat = "MM/dd/yyyy"
+            destructionDate = formatter.date(from: date)
+        }
+        
+        let note = Note(title: title,
+                        content: content,
+                        priority: .normal,
+                        color: color ?? .white,
+                        selfDestructionDate: destructionDate)
+        
+        if selectedNote == nil {
+            strongDelegate.tableView.beginUpdates()
+            strongDelegate.notebook.add(note)
+            strongDelegate.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+            strongDelegate.tableView.endUpdates()
+        } else {
+            guard
+                let uid = selectedNote?.uid,
+                let noteIdx = (strongDelegate.notebook.notesArray.firstIndex(where: {$0.uid == uid}))
+            else {
+                return
+            }
+            strongDelegate.tableView.beginUpdates()
+            strongDelegate.notebook.remove(with: uid)
+            strongDelegate.notebook.add(note)
+            strongDelegate.tableView.deleteRows(at: [IndexPath(row: noteIdx, section: 0)], with: .automatic)
+            strongDelegate.tableView.insertRows(at: [IndexPath(row: 0, section: 0)], with: .automatic)
+            strongDelegate.tableView.endUpdates()
+        }
+        
+        selectedNote = nil
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -165,7 +251,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     }
 }
 
-extension ViewController: HSBColorPickerDelegate {
+extension EditNoteViewController: HSBColorPickerDelegate {
     func HSBColorColorPickerTouched(sender: HSBColorPicker, color: UIColor, point: CGPoint, state: UIGestureRecognizer.State) {
         colorPickerView.preview.backgroundColor = color
         anyColorView.backgroundColor = color
@@ -175,6 +261,8 @@ extension ViewController: HSBColorPickerDelegate {
         redColorView.isShapeHidden = true
         greenColorView.isShapeHidden = true
         anyColorView.isShapeHidden = false
+        
+        self.color = color
     }
 }
 
